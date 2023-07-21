@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -72,7 +73,7 @@ namespace Palmmedia.ReportGenerator.Core.Parser
                 throw new ArgumentNullException(nameof(report));
             }
 
-            var assemblies = new List<Assembly>();
+            var assemblies = new List<Analysis.Assembly>();
 
             var modules = report.Descendants("package")
               .ToArray();
@@ -121,7 +122,7 @@ namespace Palmmedia.ReportGenerator.Core.Parser
         /// <param name="modules">The modules.</param>
         /// <param name="assemblyName">Name of the assembly.</param>
         /// <returns>The <see cref="Assembly"/>.</returns>
-        private Assembly ProcessAssembly(XElement[] modules, string assemblyName)
+        private Analysis.Assembly ProcessAssembly(XElement[] modules, string assemblyName)
         {
             Logger.DebugFormat(Resources.CurrentAssembly, assemblyName);
 
@@ -161,7 +162,7 @@ namespace Palmmedia.ReportGenerator.Core.Parser
                 .OrderBy(c => c.Item1)
                 .ToArray();
 
-            var assembly = new Assembly(assemblyName);
+            var assembly = new Analysis.Assembly(assemblyName);
 
             Parallel.ForEach(classNames, c => this.ProcessClass(modules, assembly, c.Item1, c.Item2));
 
@@ -175,7 +176,7 @@ namespace Palmmedia.ReportGenerator.Core.Parser
         /// <param name="assembly">The assembly.</param>
         /// <param name="className">Name of the class.</param>
         /// <param name="classDisplayName">Diesplay name of the class.</param>
-        private void ProcessClass(XElement[] modules, Assembly assembly, string className, string classDisplayName)
+        private void ProcessClass(XElement[] modules, Analysis.Assembly assembly, string className, string classDisplayName)
         {
             var files = modules
                 .Where(m => m.Attribute("name").Value.Equals(assembly.Name))
@@ -326,6 +327,8 @@ namespace Palmmedia.ReportGenerator.Core.Parser
                     if (!"NaN".Equals(lineRate.Value, StringComparison.OrdinalIgnoreCase))
                     {
                         value = Math.Round(100 * decimal.Parse(lineRate.Value.Replace(',', '.'), NumberStyles.Number | NumberStyles.AllowExponent, CultureInfo.InvariantCulture), 2, MidpointRounding.AwayFromZero);
+                        //Logger.Debug("[Cobertura] ------------------------------------------------------------------");
+                        //Logger.DebugFormat("[Cobertura]  LineRate: {0} ==> lineRate:  {1}", lineRate.Value, value);
                     }
 
                     metrics.Add(Metric.Coverage(value));
@@ -372,7 +375,7 @@ namespace Palmmedia.ReportGenerator.Core.Parser
                 {
                     methodMetric.Line = int.Parse(line.Attribute("number").Value, CultureInfo.InvariantCulture);
                 }
-
+                Logger.DebugFormat("[Cobertura]  [M] {0}, {1}, {2}", fullName, shortName, metrics.ToString());
                 codeFile.AddMethodMetric(methodMetric);
             }
         }

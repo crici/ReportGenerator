@@ -11,6 +11,11 @@ namespace Palmmedia.ReportGenerator.Core
     internal static class CommandLineArgumentNames
     {
         /// <summary>
+        /// The response file .
+        /// </summary>
+        public const string ResponseFile = "RESPONSEFILE";
+
+        /// <summary>
         /// The reports.
         /// </summary>
         public const string Reports = "REPORTS";

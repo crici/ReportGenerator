@@ -47,8 +47,9 @@ namespace Palmmedia.ReportGenerator.Core
             }
 
             Console.WriteLine();
+            Console.WriteLine(Properties.Help.ParametersInFile);
+            Console.WriteLine("    " + Properties.Help.Parameters_ResponseFile);
             Console.WriteLine(Properties.Help.Parameters);
-            Console.WriteLine("    " + Properties.Help.Parameters_Reports);
             Console.WriteLine("    " + Properties.Help.Parameters_TargetDirectory);
             Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "    " + Properties.Help.Parameters_ReportTypes, string.Join("|", availableReportTypes.Take(3).Union(new[] { "..." }))));
             Console.WriteLine("    " + Properties.Help.Parameters_SourceDirectories);
@@ -64,6 +65,7 @@ namespace Palmmedia.ReportGenerator.Core
 
             Console.WriteLine();
             Console.WriteLine(Properties.Help.Explanations);
+            Console.WriteLine("    " + Properties.Help.Explanations_ResponseFile);
             Console.WriteLine("    " + Properties.Help.Explanations_Reports);
             Console.WriteLine("    " + Properties.Help.Explanations_TargetDirectory);
             Console.WriteLine("    " + Properties.Help.Explanations_ReportTypes);

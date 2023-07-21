@@ -169,6 +169,15 @@ namespace Palmmedia.ReportGenerator.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ResponseFile:       If the number of reports to include in the reporting exceeds the maxumum length of the command line, all programm arguments can be passed to ReportGenerator via a response file. The provided file must hold one argument per line..
+        /// </summary>
+        internal static string Explanations_ResponseFile {
+            get {
+                return ResourceManager.GetString("Explanations_ResponseFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Source directories: Optional directories which contain the corresponding source code (separated by semicolon)..
         /// </summary>
         internal static string Explanations_SourceDirectories {
@@ -314,6 +323,15 @@ namespace Palmmedia.ReportGenerator.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [[&quot;]-responsefile:&lt;filename&gt;[&quot;]].
+        /// </summary>
+        internal static string Parameters_ResponseFile {
+            get {
+                return ResourceManager.GetString("Parameters_ResponseFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [[&quot;]-sourcedirs:&lt;directory&gt;[;&lt;directory&gt;][;&lt;directory&gt;][&quot;]].
         /// </summary>
         internal static string Parameters_SourceDirectories {
@@ -359,11 +377,29 @@ namespace Palmmedia.ReportGenerator.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parameters from Responsefile.
+        /// </summary>
+        internal static string ParametersInFile {
+            get {
+                return ResourceManager.GetString("ParametersInFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to                     Values: {0}.
         /// </summary>
         internal static string ReportTypeValues {
             get {
                 return ResourceManager.GetString("ReportTypeValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResponseFile: Path to a response file which contians all program arguments. One argument per line..
+        /// </summary>
+        internal static string ResponseFile {
+            get {
+                return ResourceManager.GetString("ResponseFile", resourceCulture);
             }
         }
         

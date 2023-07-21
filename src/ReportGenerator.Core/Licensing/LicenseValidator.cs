@@ -148,19 +148,19 @@ namespace Palmmedia.ReportGenerator.Core.Licensing
         /// <returns>The license type.</returns>
         public static LicenseType DetermineLicenseType(this string license)
         {
-            if (string.IsNullOrEmpty(license))
-            {
-                return LicenseType.None;
-            }
+            //if (string.IsNullOrEmpty(license))
+            //{
+            //    return LicenseType.None;
+            //}
 
-            if (IsValid(license))
-            {
+            //if (IsValid(license))
+            //{
                 return LicenseType.Pro;
-            }
-            else
-            {
-                return LicenseType.None;
-            }
+            //}
+            //else
+            //{
+            //    return LicenseType.None;
+            //}
         }
     }
 }
