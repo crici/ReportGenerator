@@ -1,5 +1,6 @@
-using System;
+    using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using DotNetConfig;
 using Palmmedia.ReportGenerator.Core.Common;
@@ -304,8 +305,33 @@ namespace Palmmedia.ReportGenerator.Core
             }
 
             var namedArguments = new Dictionary<string, string>();
+            List<string> actualArgs = new List<string>();
 
-            foreach (var arg in args)
+            if (args.Any(a => a.StartsWith("-responsefile:")))
+            {
+                foreach (var arg in args)
+                {
+                    if (arg.StartsWith("-responsefile:"))
+                    {
+                        // Extract the filename
+                        var filename = arg.Substring("-responsefile:".Length);
+                        var lines = File.ReadAllLines(filename);
+
+                        // Check, if we have a '-responsefile:<filename>' to get the program arguments
+                        foreach (var line in lines)
+                        {
+                            actualArgs.Add(line);
+                            //Logger.Debug(line);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                actualArgs.AddRange(args);
+            }
+
+            foreach (var arg in actualArgs)
             {
                 var match = CommandLineArgumentNames.CommandLineParameterRegex.Match(arg);
 

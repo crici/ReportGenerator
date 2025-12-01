@@ -47,6 +47,8 @@ namespace Palmmedia.ReportGenerator.Core
             }
 
             Console.WriteLine();
+            Console.WriteLine(Properties.Help.ParametersInFile);
+            Console.WriteLine("    " + Properties.Help.Parameters_ResponseFile);
             Console.WriteLine(Properties.Help.Parameters);
             Console.WriteLine("    " + Properties.Help.Parameters_Reports);
             Console.WriteLine("    " + Properties.Help.Parameters_TargetDirectory);
@@ -67,6 +69,7 @@ namespace Palmmedia.ReportGenerator.Core
 
             Console.WriteLine();
             Console.WriteLine(Properties.Help.Explanations);
+            Console.WriteLine("    " + Properties.Help.Explanations_ResponseFile);
             Console.WriteLine("    " + Properties.Help.Explanations_Reports);
             Console.WriteLine("    " + Properties.Help.Explanations_TargetDirectory);
             Console.WriteLine("    " + Properties.Help.Explanations_ReportTypes);

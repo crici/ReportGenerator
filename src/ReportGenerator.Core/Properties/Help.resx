@@ -156,6 +156,9 @@
   <data name="Explanations_ReportTypes" xml:space="preserve">
     <value>Report types:       The output formats and scope (separated by semicolon).</value>
   </data>
+  <data name="Explanations_ResponseFile" xml:space="preserve">
+    <value>ResponseFile:       If the number of reports to include in the reporting exceeds the maxumum length of the command line, all programm arguments can be passed to ReportGenerator via a response file. The provided file must hold one argument per line.</value>
+  </data>
   <data name="Explanations_RiskHotspotAssemblyFilters" xml:space="preserve">
     <value>Risk hotspot assembly filters: Optional list of assemblies that should be included or excluded in the risk hotspots.</value>
   </data>
@@ -184,6 +187,9 @@
   <data name="Parameters" xml:space="preserve">
     <value>Parameters:</value>
   </data>
+  <data name="ParametersInFile" xml:space="preserve">
+    <value>Parameters from Responsefile</value>
+  </data>  
   <data name="Parameters_AssemblyFilters" xml:space="preserve">
     <value>[["]-assemblyfilters:&lt;(+|-)filter&gt;[;&lt;(+|-)filter&gt;][;&lt;(+|-)filter&gt;]["]]</value>
   </data>
@@ -207,6 +213,12 @@
   </data>
   <data name="Parameters_ReportTypes" xml:space="preserve">
     <value>[["]-reporttypes:&lt;{0}&gt;[;&lt;{0}&gt;]["]]"</value>
+  </data>
+    <data name="Parameters_ResponseFile" xml:space="preserve">
+    <value>[["]-responsefile:&lt;filename&gt;["]]</value>
+  </data>
+    <data name="ResponseFile" xml:space="preserve">
+    <value>ResponseFile: Path to a response file which contians all program arguments. One argument per line.</value>
   </data>
   <data name="Parameters_RiskHotspotAssemblyFilters" xml:space="preserve">
     <value>[["]-riskhotspotassemblyfilters:&lt;(+|-)filter&gt;[;&lt;(+|-)filter&gt;][;&lt;(+|-)filter&gt;]["]]</value>
